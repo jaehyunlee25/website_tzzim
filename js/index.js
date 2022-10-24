@@ -24,11 +24,19 @@ doc.gcn("inquiry_ok")[0].onclick = function () {
     doc.gbn("inquiryArea")[0].focus();
     return;
   }
-  post({
+  const param = {
     name,
     subject,
     content,
     email,
     type,
-  });
+  };
+  post(
+    "https://dev.mnemosyne.co.kr/api/crawler/question",
+    param,
+    { "Content-Type": "application/json" },
+    (data) => {
+      log(data);
+    }
+  );
 };
