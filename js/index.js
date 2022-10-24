@@ -4,7 +4,23 @@ doc.gcn("inquiry_ok")[0].onclick = function () {
   const type = doc.gbn("inquiryType")[0].value;
   const email = doc.gcn("email")[0].value;
   const content = doc.gbn("inquiryArea")[0].value;
-  log({
+  if (name.trim() == "") {
+    alert("이름을 입력해 주세요.");
+    doc.gcn("name")[0].focus();
+  }
+  if (subject.trim() == "") {
+    alert("제목을 입력해 주세요.");
+    doc.gcn("subject")[0].focus();
+  }
+  if (email.trim() == "") {
+    alert("이메일을 입력해 주세요.");
+    doc.gcn("email")[0].focus();
+  }
+  if (content.trim() == "") {
+    alert("내용을 입력해 주세요.");
+    doc.gbn("inquiryArea")[0].focus();
+  }
+  post({
     name,
     subject,
     content,
