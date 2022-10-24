@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeeZzim</title>
+    <link rel="stylesheet" href="./css/fonts.css">
+
+    <style>
+        *, *:before, *:after {box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box;}
+        * { -webkit-touch-callout:none; /* 이미지 길게 터치 방지 */ -webkit-tap-highlight-color:transparent; /* a 클릭시 배경색 제거 */}
+        html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, button, address, em, img, small, strong, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, hr, blockquote, input {margin:0; padding:0; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box;}
+        html, body {-webkit-box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box;  }
+        html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, a, button, address, em, small, strong, sub, sup, dl, dt, dd, ol, ul, li, fieldset, article, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, hr, blockquote, input, textarea , select {font-family: 'Spoqa Han Sans Neo';}
+        :-webkit-input-placeholder, :-ms-placeholder, :-moz-placeholder, ::placeholder {font-family: 'Spoqa Han Sans Neo'; font-size:16px;}
+        address, article, aside, canvas, details, figure, figcaption, footer, header, menu, nav, section {display:block; margin:0; padding:0;}
+
+        em, i { font-style: normal } 
+        h1, h2, h3 { font-weight: 300; margin:0; padding:0 } 
+        strong { font-weight: normal } 
+        ul, ol, li { list-style: none; } 
+        html, body, article, div, section, header, main, aside, footer,p, ul, ol, li, dl, dt, dd, table, th, td { margin: 0; padding: 0; line-height: 1; box-sizing: border-box; font-weight: 300; } 
+        p, strong, li { line-height: 1.3; } 
+        input, select, button { border: 0; background: transparent } 
+        input, select { appearance: none; -webkit-appearance: none; -o-appearance: none; -ms-appearance: none; } 
+        input::-webkit-input-placeholder { color: #767676;  } 
+        input:-ms-input-placeholder { color: #767676;  } 
+        input::-moz-placeholder { color: #767676; opacity: 1;} 
+        input:-moz-placeholder { color: #767676; opacity: 1; } 
+        button { margin: 0; padding: 0; line-height: 1; cursor: pointer; } 
+        fieldset, figure, blockquote { margin:0; padding:0; border:0; } 
+        cite { font-style: normal } 
+        span {font-family: 'Spoqa Han Sans Neo';}
+
+        header { position: relative; } 
+        a { text-decoration: none; color: inherit } 
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; } 
+        table caption { position: static; margin: 0; padding: 0; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); word-break: initial; word-wrap: initial}
+        img { border: 0; } 
+        button, html [type="button"] { -webkit-appearance: none; } 
+        input[type=submit] { -webkit-appearance:none; } 
+
+        header {width: 100%; height: 65px; padding: 0 10px; border-bottom: 2px solid rgba(0, 0, 0, 0.05);}
+        .M_header {width: 100%; height: 100%; display: flex; justify-content: space-between; align-items: center;}
+        .M_headerList {width: auto; height: auto;}
+        .BackBox {cursor: pointer;}
+        .LogoBox {cursor: pointer;}
+        .CloseBox {cursor: pointer;}
+
+
+        main {width: 100%; height: auto;}
+        .infoSection {width: 100%; height: auto;}
+        .info_sec1 {
+            height: 1055px;
+            padding: 150px 0;
+            padding-left: 10%;
+            background-image: url('./images/bg_1.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: right;
+        }
+        .info_title {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+        .info_text {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: -3px;
+        }
+        .sec1_title {
+            margin-bottom: 100px;
+            padding-left: 50px;
+            font-size: 100px;
+            color: #269b7b;
+        }
+        .sec1_text {
+            padding-left: 50px;
+            white-space: pre-line;
+            font-size: 36px;
+            color: #464646;
+        }
+
+        .info_sec2 {
+            position: relative;
+            height: 1055px;
+            padding: 150px 0;
+            padding-left: 10%;
+            background-color: #269b7b;
+        }
+        .info_sec2::after {
+            content: '';
+            position: absolute;
+            bottom: -250px;
+            right: 0;
+            width: 803px;
+            height: 953px;
+            background-image: url('./images/bg_2.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: right;
+        }
+        .icon_1 {
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+        .sec2_title {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            padding-left: 30px;
+            font-size: 72px;
+            font-weight: 500;
+            color: #fff;
+        }
+        .sec2_title span {
+            line-height: 75px;
+        }
+        .sec2_text {
+            margin-bottom: 70px;
+            padding-left: 30px;
+            white-space: pre-line;
+            font-size: 30px;
+            font-weight: 400;
+            letter-spacing: -1px;
+            color: #fff;
+        }
+        .app_link {
+            cursor: pointer;
+            display: inline-block;
+            margin-left: 30px;
+            border-radius: 30px;
+            padding: 45px 50px;
+            font-size: 30px;
+            letter-spacing: -1px;
+            color: #fff;
+            background-color: #76c8a6;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.18);
+        }
+
+        .info_sec3 {
+            height: auto;
+            padding: 150px 0;
+            padding-left: 10%;
+        }
+        .info_guben1 {
+            display: flex;
+        }
+        .info_guben1 .mid_box {
+            width: 50%;
+            height: auto;
+        }
+        .info_guben1 .mid_box:first-child {
+            width: 40%;
+        }
+        .info_guben1 .mid_box:last-child {
+            width: 60%;
+        }
+        .info_guben1 .mid_box img {
+            margin-top: -75px;
+            margin-left: -75px;
+        }
+        .info_guben2 {
+            display: flex;
+        }
+        .info_guben2 .mid_box {
+            width: 50%;
+            height: auto;
+        }
+        .info_guben2 .mid_box:first-child {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .info_guben2 .mid_box:last-child {
+            width: 60%;
+            display: flex;
+            justify-content: end;
+        }
+        .sec3_title {
+            display: flex;
+            flex-direction: column;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            font-size: 67px;
+            letter-spacing: -5px;
+            color: #269b7b;
+        }
+        .sec3_title span {
+            font-weight: 300;
+        }
+        .sec3_text {
+            white-space: pre-line;
+            font-size: 36px;
+            font-weight: 300;
+            color: #464646;
+        }
+
+        .info_sec4 {
+            height: auto;
+            padding: 150px 0;
+            padding-left: 10%;
+        }
+        .sec4_title {
+            display: flex;
+            flex-direction: column;
+            margin-top: 60px;
+            font-size: 36px;
+            letter-spacing: -3px;
+            font-weight: 400;
+            color: #269b7b;
+        }
+        .sec4_text {
+            margin-bottom: 100px;
+            white-space: pre-line;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: -1px;
+            color: #b6b6b6;
+        }
+        .info_uiText {
+            font-size: 66px;
+            font-weight: 300;
+            letter-spacing: -5px;
+            color: #d6d6d6;
+        }
+        .info_uiText span {
+            font-weight: 500;    
+            color: #269b7b;
+        }
+
+        .info_sec5 {
+            height: 655px;
+            padding: 150px 0;
+            padding-left: 10%;
+            background-color: #269b7b;
+            background-image: url('./images/bg_5.png');
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+        .sec5_title {
+            display: flex;
+            flex-direction: column;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            font-size: 66px;
+            letter-spacing: -3px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+        .sec5_text {
+            font-size: 66px;
+            font-weight: 300;
+            letter-spacing: -3px;
+            color: #ffffff;
+        }
+
+        .info_sec6 {
+            height: auto;
+            padding: 150px 0;
+            padding-left: 10%;
+        }
+        .sec6_title {
+            margin-top: 60px;
+            margin-bottom: 20px;
+            font-size: 66px;
+            letter-spacing: -3px;
+            font-weight: 500;
+            color: #269b7b;
+        }
+        .sec6_text {
+            white-space: pre-line;
+            margin-top: 120px;
+            font-size: 30px;
+            font-weight: 500;
+            letter-spacing: -2px;
+            line-height: 50px;
+            color: #464646;
+        }
+        .info_guben3 {
+            width: 100%;
+            height: auto;
+            display: flex;
+        }
+        .info_guben3 .mid_box:first-child {
+            width: 35%;
+            height: auto;
+        }
+        .info_guben3 .mid_box:last-child {
+            width: 65%;
+            height: auto;
+        }
+
+        .info_sec7 {
+            height: 950px;
+            padding: 150px 0;
+            background-color: #269b7b;
+            background-image: url('./images/bg_7.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 100% 70%;
+        }
+        .sec7_title {
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 60px;
+            letter-spacing: -3px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+        .sec7_text {
+            margin-bottom: 60px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: -1.3px;
+            color: #ffffff;
+        }
+        .info_inputBox {
+            width: 900px;
+            height: auto;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            grid-gap: 30px;
+        }
+        .inquiry_box {
+            display: flex;
+            justify-content: space-between;
+            grid-gap: 30px;
+        }
+        .input_list:first-child {
+            width: 35%;
+        }
+        .input_list:last-child {
+            width: 65%;
+        }
+        .input_title {
+            margin-bottom: 15px;
+            font-size: 17px;
+            font-weight: 300;
+            letter-spacing: -0.8px;
+            color: #ffffff;
+        }
+        .same_input {
+            width: 100%;
+            padding: 10px 25px;
+            border: 1px solid #94d1b7;
+            border-radius: 35px;
+            font-size: 17px;
+            font-weight: 400;
+            color: #ffffff;
+        }
+        .same_input:focus {
+            outline: none;
+            box-shadow: 1px 1px 5px rgba(18, 103, 80, 0.5);
+        }
+        .same_select {
+            width: 100%;
+            padding: 10px 25px;
+            border: 1px solid #94d1b7;
+            border-radius: 35px;
+            font-size: 17px;
+            font-weight: 400;
+            color: #ffffff;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: url('./images/select.png') no-repeat 92% 50%;
+        }
+        .same_select:focus {
+            outline: none;
+            box-shadow: 1px 1px 5px rgba(18, 103, 80, 0.5);
+        }
+        .same_textarea {
+            width: 100%;
+            padding: 21px 25px;
+            border: 1px solid #94d1b7;
+            border-radius: 35px;
+            font-size: 17px;
+            font-weight: 400;
+            color: #ffffff;
+            resize: none;
+            background: none;
+        }
+        .same_textarea:focus {
+            outline: none;
+            box-shadow: 1px 1px 5px rgba(18, 103, 80, 0.5);
+        }
+        .inquiry_list:first-child {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            grid-gap: 35px;
+        }
+        .inquiry_list:last-child {
+            width: 65%;
+        }
+        .inquiry_submitBox {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: end;
+        }
+        .inquiry_ok {
+            cursor: pointer;
+            padding: 18px 40px;
+            border-radius: 35px;
+            font-size: 17px;
+            font-weight: 300;
+            letter-spacing: -0.8px;
+            color: #ffffff;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .inquiry_ok:hover {
+            background-color: #000;
+        }
+        footer {
+            width: 100%;
+            height: auto;
+            padding: 50px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .copyRight {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            color: #7c7c7c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="M_header">
+            <div class="M_headerList BackBox">
+                <img src="./images/back_icon.png">
+            </div>
+            <div class="M_headerList LogoBox">
+                <a href="/">
+                    <img src="./images/logo_icon.png">
+                </a>
+            </div>
+            <div class="M_headerList CloseBox">
+                <img src="./images/close_icon.png">
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="info_sec1 infoSection">
+            <p class="info_title sec1_title">TZZIM</p>
+            <p class="info_text sec1_text">
+                흩어져있는 골프계정
+                통합해서 확인하고
+            </p>
+            <p class="info_text sec1_text">
+                예약 스케쥴 관리까지
+                한곳에서
+            </p>
+        </section>
+
+        <section class="info_sec2 infoSection">
+            <img src="./images/icon_1.png" class="icon_1">
+            <p class="info_title sec2_title">
+                <span>간단하게</span>
+                <span>티찜 시작하기</span>
+            </p>
+            <p class="info_text sec2_text">
+                사용자의 손쉬운 접근을 위해
+                간단한 절차를 통해 계정 등록이 
+                가능합니다.
+            </p>
+            <a href="/" class="app_link">APP 다운로드 받기</a>
+        </section>
+
+        <section class="info_sec3 infoSection">
+            <div class="info_guben1">
+                <div class="mid_box">
+                    <img src="./images/bg_3.png">
+                </div>
+                <div class="mid_box">
+                    <p class="info_title sec3_title">
+                        이런 경험
+                        <span>다들 있으시죠?</span>
+                    </p>
+                    <p class="info_text sec3_text">
+                        이용하는 골프장마다
+                        다른 아이디와 패스워드
+                    </p>
+                </div>
+            </div>
+
+            <div class="info_guben2">
+                <div class="mid_box">
+                    <p class="info_text sec3_text">
+                        이젠, 한곳에서 쉽고 간편하게
+                        계정관리 하세요.
+                        골프장 예약 및 스케쥴 관리까지,
+                        한번에 해결
+                    </p>
+                </div>
+                <div class="mid_box">
+                    <img src="./images/bg_4.png">
+                </div>
+            </div>
+        </section>
+
+        <section class="info_sec4 infoSection">
+            <p class="info_title sec4_title">
+                Reserch
+            </p>
+            <p class="info_text sec4_text">
+                다양한 사용자들의 기존 앱 서비스를 사용하고 작성한 리뷰를 분석하고 실제 사용자들과 소통하여 문제점을 파악,
+                숨겨진 니즈를 기반으로 최적의 골프 예약 시스템 서비스를 제공하기 위해 아래와 같은 문제점 개선을 목표로 진행하였습니다.
+            </p>
+            <p class="info_uiText">
+                <span>직관적인 UI</span> 서비스 흐름 <span>유용한 골프장 정보</span>
+            </p>
+            <p class="info_uiText">
+                중복된 버튼 <span>간단한 계정 등록</span> 파악안되는 정보
+            </p>
+            <p class="info_uiText">
+                <span>손쉬운 등록해지</span> 불필요한 중복 <span>간편한 예약</span>
+            </p>
+        </section>
+
+        <section class="info_sec5 infoSection">
+            <p class="info_title sec5_title">골프장 예약은 내가 할께,</p>
+            <p class="info_text sec5_text">
+                계정 등록은 누가할래?
+            </p>
+        </section>
+
+        <section class="info_sec6 infoSection">
+            <p class="info_title sec6_title">골프장 관련 정보는 티찜이 척척,</p>
+            <div class="info_guben3">
+                <div class="mid_box">
+                    <img src="./images/bg_6.png">
+                </div>
+                <div class="mid_box">
+                    <p class="info_text sec6_text">
+                        날씨 정보
+                        교통정보 / 네비게이션
+                        주변 식당 정보
+                        클럽하우스 식당 메뉴
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="info_sec7 infoSection">
+            <p class="info_title sec7_title">서비스 문의하기</p>
+            <p class="info_text sec7_text">
+                앱 관련 문의 사항은 아래의 폼으로 작성해 주시면 성실히 답변드리겠습니다.
+            </p>
+
+            <div class="info_inputBox">
+                <div class="inquiry_box">
+                    <div class="input_list">
+                        <p class="input_title">이름</p>
+                        <input type="text" class="name same_input">
+                    </div>
+                    <div class="input_list">
+                        <p class="input_title">제목</p>
+                        <input type="text" class="subject same_input">
+                    </div>
+                </div>
+                <div class="inquiry_box">
+                    <div class="inquiry_list">
+                        <div class="input_list2">
+                            <p class="input_title">문의종류</p>
+                            <select name="inquiryType" id="inquiryType" class="same_select">
+                                <option value="inquiry1">inquiry Type1</option>
+                                <option value="inquiry2">inquiry Type2</option>
+                                <option value="inquiry3">inquiry Type3</option>
+                            </select>
+                        </div>
+                        <div class="input_list2">
+                            <p class="input_title">이메일</p>
+                            <input type="text" class="이메일 same_input">
+                        </div>
+                    </div>
+                    <div class="inquiry_list">
+                        <div class="input_list2">
+                            <p class="input_title">문의내용</p>
+                            <textarea name="inquiryArea" id="inquiryArea" class="same_textarea" cols="20" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="inquiry_submitBox">
+                    <button type="button" class="inquiry_ok">문의하기</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="copyRight">
+            Copyright ⓒ2022 tzzim allright reserved.
+        </p>
+    </footer>
+</body>
+</html>
