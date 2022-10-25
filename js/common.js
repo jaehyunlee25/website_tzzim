@@ -182,7 +182,7 @@ String.prototype.fillzero = function (sep) {
   return result.join("");
 };
 String.prototype.rp = function () {
-  return this.replace(/"/g, '\\"');
+  return this.replace(/"/g, '"');
 };
 HTMLElement.prototype.str = function () {
   return this.innerText;
