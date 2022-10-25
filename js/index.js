@@ -36,15 +36,15 @@ doc.gcn("inquiry_ok")[0].onclick = function () {
     param,
     { "Content-Type": "application/json" },
     (data) => {
-      log(data);
-      if (data.type == "okay") {
-        alert(data.message);
+      const json = JSON.parse(data);
+      if (json.type == "okay") {
+        alert(json.message);
         doc.gcn("name")[0].value = "";
         doc.gcn("subject")[0].value = "";
         doc.gcn("email")[0].value = "";
         doc.gbn("inquiryArea")[0].value = "";
-      } else if (data.type == "error") {
-        alert(data.message);
+      } else if (json.type == "error") {
+        alert(json.message);
       }
     }
   );
